@@ -1,0 +1,23 @@
+{
+    "name": "webmkr/hub",
+    "description": "CMS for Webmkr's projects.",
+    "type": "project",
+    "require": {
+        "watson/active": "^3.1",
+        "cviebrock/eloquent-sluggable": "^4.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Webmkr",
+            "email": "webmkr.wm@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webmkr\\Hub\\HubServiceProvider"
+            ]
+        }
+    }
+}
