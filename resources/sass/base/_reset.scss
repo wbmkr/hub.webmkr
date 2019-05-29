@@ -1,0 +1,31 @@
+html,body {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #2F3640;
+}
+
+.section {
+  width: 100%;
+  height: auto;
+  position: relative;
+  float: left;
+}
+
+a, button, input, .transition {
+  transition: .32s ease;
+  -webkit-transition: .32s ease;
+  -moz-transition: .32s ease;
+  -o-transition: .32s ease;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}

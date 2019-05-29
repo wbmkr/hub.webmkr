@@ -16,6 +16,7 @@ class ComposerStaticInite0b308bc055bd9c291364960c1158f06
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
+            'Webmkr\\Hub\\' => 11,
             'Watson\\Active\\' => 14,
         ),
         'S' => 
@@ -63,6 +64,10 @@ class ComposerStaticInite0b308bc055bd9c291364960c1158f06
     );
 
     public static $prefixDirsPsr4 = array (
+        'Webmkr\\Hub\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Watson\\Active\\' => 
         array (
             0 => __DIR__ . '/..' . '/watson/active/src',

@@ -1,0 +1,20 @@
+body {
+  &.devise {
+    .image-holder {
+      background-image: url('https://res.cloudinary.com/wmkr/image/upload/v1558812258/Hub/assets/images/background.jpg');
+      background-position: center;
+      background-size: cover;
+    }
+
+    .content {
+      padding: 45px;
+
+      .header {
+        h1 {
+          font: 700 18px $font-secondary;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.form-default {
+  a {
+    font: 600 12px 'Roboto Condensed', sans-serif;
+    color: #0B9BD0;
+    &:hover {
+      color: #2F3640;
+    }
+  }
+  .form-group {
+    label {
+      font: 700 10px 'Roboto Condensed', sans-serif;
+      text-transform: uppercase;
+      color: #8F9AA8;
+      &.required::after {
+        content: '*';
+        color: #D62739;
+      }
+    }
+
+    .form-control {
+      border: 1px solid #C9D7E9;
+      border-radius: 0;
+      box-shadow: none !important;
+      outline: none !important;
+      font: 400 12px 'Roboto', sans-serif;
+      padding: 1.25rem;
+    }
+  }
+
+  .custom-control-label::before {
+    border-radius: 0;
+    border: 1px solid #C9D7E9;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #0B9BD0;
+    border-color: #0B9BD0;
+  }
+
+  .custom-control-label {
+    font: 400 14px/24px 'Roboto', sans-serif !important;
+    text-transform: none !important;
+  }
+}

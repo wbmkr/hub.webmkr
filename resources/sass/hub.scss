@@ -1,0 +1,13 @@
+@import '~bootstrap/scss/bootstrap';
+
+@import 'components/buttons';
+@import 'components/form';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'themes/devise';
+
+.body {
+  background-color: black;
+}

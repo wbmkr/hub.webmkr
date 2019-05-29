@@ -13,11 +13,19 @@
             "email": "webmkr.wm@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Webmkr\\Hub\\": "src/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
                 "Webmkr\\Hub\\HubServiceProvider"
             ]
+        },
+        "branch-alias": {
+            "dev-master": "1.0-dev"
         }
     }
 }
