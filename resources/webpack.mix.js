@@ -11,5 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/hub.js', 'public/js')
+mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts')
+   .js('resources/js/hub.js', 'public/js')
    .sass('resources/sass/hub.scss', 'public/css');

@@ -5,6 +5,7 @@ Route::prefix('admin')->middleware('web')->name('admin.')->group(function(){
     Route::name('auth.')->group(function(){
         Route::get('login', 'Webmkr\Hub\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
         Route::post('login', 'Webmkr\Hub\Http\Controllers\Auth\LoginController@login');
+        Route::get('sair', 'Webmkr\Hub\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
         Route::name('password.')->group(function(){
             Route::get('esqueci-minha-senha', 'Webmkr\Hub\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('request');
@@ -16,6 +17,6 @@ Route::prefix('admin')->middleware('web')->name('admin.')->group(function(){
     
     # PROTECTED ROUTES
     Route::middleware('auth:admin')->group(function(){
-        Route::get('/', 'Webmkr\Hub\Http\Controllers\DashboardController@index');
+        Route::get('/', 'Webmkr\Hub\Http\Controllers\DashboardController@index')->name('dashboard');
     });
 });

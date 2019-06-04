@@ -10,6 +10,7 @@ class HubServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'hub');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         $this->publishes([
             # WEBPACK & RESOURCES
@@ -20,9 +21,21 @@ class HubServiceProvider extends ServiceProvider
 
             # CONFIG
             __DIR__.'/../config/auth.php' => config_path('auth.php'),
+            __DIR__.'/../config/app.php' => config_path('app.php'),
+            __DIR__.'/../resources/lang/pt-br' => resource_path('lang/pt-br'),
+            __DIR__.'/../database/migrations' => database_path('migrations'),
+            __DIR__.'/Traits' => app_path('Traits'),
+            __DIR__.'/Exceptions' => app_path('Exceptions'),
 
             # MIDDLEWARE
             __DIR__.'/Http/Middleware/Authenticate.php' => app_path('Http/Middleware/Authenticate.php'),
+            __DIR__.'/Http/Middleware/RoleMiddleware.php' => app_path('Http/Middleware/RoleMiddleware.php'),
+
+            # MODELS
+            __DIR__.'/Model' => app_path('/'),
+
+            # NOTIFICATIONS
+            __DIR__.'/Notifications' => app_path('Notifications'),
         ]);
     }
 
@@ -30,5 +43,6 @@ class HubServiceProvider extends ServiceProvider
     {
         $this->app->make('Webmkr\Hub\Http\Controllers\DashboardController');
         $this->app->make('Webmkr\Hub\Http\Controllers\Auth\LoginController');
+        $this->app->make('Webmkr\Hub\Http\Controllers\Auth\ForgotPasswordController');
     }
 }

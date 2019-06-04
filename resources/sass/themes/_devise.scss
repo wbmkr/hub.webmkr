@@ -15,6 +15,13 @@ body {
           text-transform: uppercase;
         }
       }
+
+      .main {
+        h2 {
+          font: 700 16px $font-secondary;
+          text-transform: uppercase;
+        }
+      }
     }
   }
 }

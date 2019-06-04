@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.name') }}">
+<html lang="{{ config('app.faker_locale') }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,7 @@
   @yield('head')
 </head>
 <body class="devise">
+  @include('hub::layouts._alerts')
   <div class="container-fluid p-0">
     <div class="row no-gutters">
       <div class="col-9">
@@ -24,7 +25,7 @@
             @yield('content')
           </div>
           <div class="section footer">
-            <p class="mb-0"><small><strong>Atenção:</strong> Está area é restrita. Se você não é funcionário da {{ config('app.name') }} com nível de acesso, <a href="{{ route('root') }}" title="clique aqui">clique aqui</a> para voltar ao site.</small></p>
+            <p class="mb-0"><small><strong>@lang('message.common.label.caution_label'):</strong> @lang('message.common.label.caution_message', ['application' => config('app.name')])</small></p>
           </div>
         </div>
       </div>
