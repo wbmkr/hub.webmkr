@@ -44,3 +44,26 @@
     text-transform: none !important;
   }
 }
+
+.form-search {
+  .input-group {
+    .form-control {
+      height: 31px;
+      border-radius: 3px 0 0 3px;
+      border: 1px solid #C9D7E9;
+      border-right: none;
+      font: 400 12px 'Roboto', sans-serif;
+    }
+    .input-group-append {
+      button {
+        width: 31px;
+        height: 31px;
+        border: none;
+        border-radius: 0 3px 3px 0;
+        background: #0D65D8;
+        color: #FFF;
+        font-size: 12px;
+      }
+    }
+  }
+}

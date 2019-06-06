@@ -1,0 +1,18 @@
+.title-section {
+  h1 {
+    font: 700 20px/42px $font-primary;
+    margin: 0;
+    .icon {
+      width: 42px;
+      height: 42px;
+      background-color: $color-icon-title;
+      color: $color-white;
+      display: inline-block;
+      margin-right: 10px;
+      border-radius: 100%;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+  margin-bottom: 30px;
+}

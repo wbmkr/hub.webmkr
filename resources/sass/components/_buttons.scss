@@ -6,6 +6,10 @@
   text-transform: uppercase;
   padding: 10px 32px;
 
+  &-rounded {
+    border-radius: 3px;
+  }
+
   &-default {
     background: #EDF1F7;
     color: #2F3640;
@@ -16,7 +20,7 @@
 
   &-primary {
     background: #0D65D8;
-    color: #FFF;
+    color: #FFF !important;
     &:hover {
       background-color: #5D9CEC;
     }

@@ -22,4 +22,14 @@ class Role extends Model
     {
         return $this->belongsToMany(Permission::class);
     }
+
+    # SHORTCUTS
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 }

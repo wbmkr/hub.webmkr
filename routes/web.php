@@ -18,5 +18,17 @@ Route::prefix('admin')->middleware('web')->name('admin.')->group(function(){
     # PROTECTED ROUTES
     Route::middleware('auth:admin')->group(function(){
         Route::get('/', 'Webmkr\Hub\Http\Controllers\DashboardController@index')->name('dashboard');
+
+        Route::prefix('configuracoes')->name('settings.')->group(function(){
+            Route::prefix('permissoes')->name('permissions.')->group(function(){
+                Route::get('/', 'Webmkr\Hub\Http\Controllers\PermissionController@index')->name('index');
+                Route::get('nova', 'Webmkr\Hub\Http\Controllers\PermissionController@create')->name('create');
+                Route::post('nova', 'Webmkr\Hub\Http\Controllers\PermissionController@store');
+                Route::get('{slug}/editar', 'Webmkr\Hub\Http\Controllers\PermissionController@edit')->name('edit');
+                Route::post('{slug}/editar', 'Webmkr\Hub\Http\Controllers\PermissionController@update');
+                Route::get('{slug}/deletar', 'Webmkr\Hub\Http\Controllers\PermissionController@delete')->name('delete');
+            });
+        });
+        
     });
 });

@@ -1,0 +1,105 @@
+.table-data {
+  border-radius: 6px;
+  background-color: $color-white;
+  overflow: hidden;
+  box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.07);
+
+  thead {
+    tr {
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+      th {
+        border: none;
+        border-right: 1px solid #F0F0F0;
+        vertical-align: middle;
+        font: 700 10px $font-secondary;
+        text-transform: uppercase;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: $color-white;
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        border-top: none;
+        vertical-align: middle;
+        border-bottom: 1px solid #F0F0F0;
+        &.row-id {
+          width: 32px;
+          max-width: 64px;
+          text-align: center;
+          font-weight: 700;
+        }
+        &.row-action {
+          width: 100px;
+          a {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            background: #FFF;
+            color: #5E5E5E;
+            border-radius: 3px;
+            border: 1px solid #F0F0F0;
+            font-size: 12px;
+            line-height: 32px;
+            float: left;
+            margin: 0 3px;
+            text-align: center;
+            &:hover {
+              background-color: #FAFAFA;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  tfoot {
+    tr {
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+      th {
+        border: none;
+        vertical-align: middle;
+        font: 700 10px $font-secondary;
+        text-transform: uppercase;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: $color-white;
+
+        .pagination {
+          margin: 0;
+          float: right;
+          .page-item {
+            margin: 0 4px;
+            &.active {
+              .page-link {
+                background-color: $color-primary !important;
+                color: $color-white !important;
+              }
+            }
+            .page-link {
+              border-radius: 100%;
+              color: $color-master;
+              border: none;
+              &:hover {
+                background-color: $color-gray;
+                color: $color-master;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

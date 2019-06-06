@@ -16,10 +16,33 @@ class Permission extends Model
     ];
 
     # RULES
+    public static $rules = [
+        'name' => 'required'
+    ];
 
     # RELATIONSHIPS
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    # SHORTCUTS
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+    # ATTRIBUTES
+    public function setAttributes($request)
+    {}
+
+    # SCOPES
+    public function scopeSlug($query, $slug)
+    {
+        return $query->where('slug', $slug);
     }
 }

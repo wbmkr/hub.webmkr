@@ -26,7 +26,22 @@ return [
             'application'       => 'Painel de Controle',
             'caution_label'     => 'Atenção',
             'caution_message'   => 'Está area é restrita. Se você não é funcionário da :application com nível de acesso, por favor volte ao site imediatamente.',
-        ]
+            'search'            => 'Pesquisar',
+            'save'              => 'Salvar',
+            'search_result'     => '{0} Sua busca retornou nenhum resultado|{1} Sua busca retornou 1 resultado|[2,*] Sua busca retornou :total resultados '
+        ],
+        'alert' => [
+            'success' => [
+                'create'    => 'Item criado com sucesso.',
+                'edit'      => 'Item editado com sucesso.',
+                'delete'    => 'Item deletado com sucesso.'
+            ],
+            'error' => [
+                'create'    => 'Ocorreu um erro ao tentar criar item, tente novamente.',
+                'edit'      => 'Ocorreu um erro ao tentar editar item, tente novamente.',
+                'delete'    => 'Ocorreu um erro ao tentar deletar item, tente novamente.'
+            ]
+        ],
     ],
 
     'pages' => [
@@ -48,7 +63,24 @@ return [
             ]
         ],
         'dashboard' => [
-            'meta_title' => 'Dashboard'
+            'title' => 'Dashboard'
+        ],
+        'settings' => [
+            'title' => 'Configurações',
+            'permissions' => [
+                'title'     => 'Permissões',
+                'name'      => 'Permissão',
+                'new'       => 'Nova Permissão',
+                'edit'      => 'Editar Permissão',
+                'delete'    => 'Deletar Permissão',
+                'action'    => [
+                    'delete'    => 'Tem certeza que deseja deletar a permissão :permission',
+                ],
+                'label'    => [
+                    'name'          => 'Nome',
+                    'created_at'    => 'Criado em',
+                ]
+            ]
         ]
     ],
 
