@@ -22,10 +22,14 @@ class HubServiceProvider extends ServiceProvider
             # CONFIG
             __DIR__.'/../config/auth.php' => config_path('auth.php'),
             __DIR__.'/../config/app.php' => config_path('app.php'),
+            __DIR__.'/../config/filesystems.php' => config_path('filesystems.php'),
             __DIR__.'/../resources/lang/pt-br' => resource_path('lang/pt-br'),
             __DIR__.'/../database/migrations' => database_path('migrations'),
+            __DIR__.'/../database/seeds' => database_path('seeds'),
             __DIR__.'/Traits' => app_path('Traits'),
             __DIR__.'/Exceptions' => app_path('Exceptions'),
+            __DIR__.'/Helper' => app_path('Helper'),
+            __DIR__.'/Providers' => app_path('Providers'),
 
             # MIDDLEWARE
             __DIR__.'/Http/Middleware/Authenticate.php' => app_path('Http/Middleware/Authenticate.php'),

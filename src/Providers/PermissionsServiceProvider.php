@@ -1,11 +1,11 @@
 <?php
 
-namespace Webmkr\Hub\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Webmkr\Hub\Permission;
+use App\Permission;
 
 class PermissionsServiceProvider extends ServiceProvider
 {

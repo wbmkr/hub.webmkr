@@ -20,11 +20,11 @@
         <div class="section content d-flex justify-content-center align-items-center">
           <div class="dropdown ml-auto">
             <button class="dropdown-toggle" type="button" id="dropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="icon"><img src="{{ Auth::guard('admin')->user()->profile() }}" alt="{{ Auth::guard('admin')->user()->name }}"></span>{{ Auth::guard('admin')->user()->name }} <span class="badge badge-dark text-uppercase">{{ Auth::guard('admin')->user()->roles->first->name }}</span>
+              <span class="icon"><img src="{{ Auth::guard('admin')->user()->profile() }}" alt="{{ Auth::guard('admin')->user()->name }}"></span>{{ Auth::guard('admin')->user()->name }} <span class="badge badge-dark text-uppercase">{{ Auth::guard('admin')->user()->roles->first()->name }}</span>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownProfile">
               <a class="dropdown-item" href="{{ route('root') }}" title="@lang('message.navigation.header.view_website')" target="_blank">@lang('message.navigation.header.view_website')</a>
-              <a class="dropdown-item" href="#" title="@lang('message.navigation.header.edit_profile')">@lang('message.navigation.header.edit_profile')</a>
+              <a class="dropdown-item" href="{{ route('admin.account') }}" title="@lang('message.navigation.header.edit_profile')">@lang('message.navigation.header.edit_profile')</a>
               <a class="dropdown-item" href="{{ route('admin.auth.logout') }}" title="@lang('message.navigation.header.logout')">@lang('message.navigation.header.logout')</a>
             </div>
           </div>

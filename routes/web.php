@@ -18,7 +18,9 @@ Route::prefix('admin')->middleware('web')->name('admin.')->group(function(){
     # PROTECTED ROUTES
     Route::middleware('auth:admin')->group(function(){
         Route::get('/', 'Webmkr\Hub\Http\Controllers\DashboardController@index')->name('dashboard');
-
+        Route::get('editar-perfil', 'Webmkr\Hub\Http\Controllers\AdminController@me')->name('account');
+        Route::post('editar-perfil', 'Webmkr\Hub\Http\Controllers\AdminController@updateMe');
+        
         Route::prefix('configuracoes')->name('settings.')->group(function(){
             Route::prefix('permissoes')->name('permissions.')->group(function(){
                 Route::get('/', 'Webmkr\Hub\Http\Controllers\PermissionController@index')->name('index');

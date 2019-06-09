@@ -10,13 +10,15 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Image;
+use Storage;
 
 class Admin extends Authenticatable
 {
     use HasPermissionTrait, Notifiable, SoftDeletes, Sluggable;
 
     protected $fillable = [
-        'name', 'avatar', 'birthdate', 'email', 'password', 'active'
+        'name', 'avatar', 'birthdate', 'email', 'active'
     ];
 
     protected $hidden = [
@@ -58,6 +60,18 @@ class Admin extends Authenticatable
     public function setAttributes($request)
     {
         $this->active = $request->active ? true : false;
+
+        if ($request->password !== null) {
+            $this->password = bcrypt($request->password);
+        }
+
+        if ($request->avatar !== null) {
+            $this->storeImage($request->file('avatar'));
+        }
+
+        if ($request->birthdate !== null) {
+            $this->birthdate = Carbon::createFromFormat('d/m/Y', $request->birthdate);
+        }
     }
 
     public function setTrackable($request)
@@ -95,6 +109,25 @@ class Admin extends Authenticatable
     public function profile()
     {
         return $this->avatar ? $this->avatar : 'https://api.adorable.io/avatars/280/'.$this->slug.'@adorable.png';
+    }
+
+    public function storeImage($image)
+    {
+        $file = Image::make($image);
+        $resize = $file->resize(280, null, function($constraint){
+            $constraint->aspectRatio();
+        });
+
+        $directory = '/Hub/uploads/admin/'.$this->slug.'/';
+        $cloudinary = Storage::disk('cloudinary');
+        $cloudinary->put($directory.$this->slug.'-cover', $resize->encode());
+
+        $this->avatar = env('CLOUDINARY_BASE_URL').'/uploads/admin/'.$this->slug.'/'.$this->slug.'-cover'.'.'.$image->getClientOriginalExtension();
+    }
+
+    public function birthdateForHuman()
+    {
+        return Carbon::parse($this->birthdate)->format('d/m/Y');
     }
 
     # SCOPES

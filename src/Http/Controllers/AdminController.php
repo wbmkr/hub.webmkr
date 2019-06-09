@@ -94,6 +94,27 @@ class AdminController extends Controller
         return redirect()->back()->with('error', __('message.common.alert.error.delete'));
     }
 
+    public function me(Request $request)
+    {
+        $admin = $request->user();
+        return view('hub::admin.account.edit', compact('admin'));
+    }
+
+    public function updateMe(Request $request)
+    {
+        $admin = $request->user();
+        $admin->fill($request->all());
+        $admin->setAttributes($request);
+
+        if ($admin->save()) {
+            session()->flash('info', __('message.common.alert.success.edit'));
+        } else {
+            session()->flash('info', __('message.common.alert.error.edit'));
+        }
+
+        return redirect()->back();
+    }
+
     # PROTECTED
     protected function getRoles()
     {

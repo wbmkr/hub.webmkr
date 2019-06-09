@@ -118,6 +118,17 @@ return [
                     'status'        => 'Status'
                 ]
             ],  
+        ],
+        'account' => [
+            'edit' => 'Editar perfil',
+            'label' => [
+                'avatar'                    => 'Avatar',
+                'name'                      => 'Nome',
+                'birthdate'                 => 'Data de nascimento',
+                'email'                     => 'E-mail',
+                'password'                  => 'Senha',
+                'password_confirmation'     => 'Confirmar senha'
+            ]
         ]
     ],
 

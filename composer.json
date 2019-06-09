@@ -4,7 +4,10 @@
     "type": "project",
     "require": {
         "watson/active": "^3.1",
-        "cviebrock/eloquent-sluggable": "^4.8"
+        "cviebrock/eloquent-sluggable": "^4.8",
+        "ext-gd": "*",
+        "cloudinary/cloudinary_php": "^1.13",
+        "intervention/image": "^2.4"
     },
     "license": "MIT",
     "authors": [

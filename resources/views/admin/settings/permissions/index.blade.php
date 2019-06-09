@@ -7,7 +7,7 @@
 @section('content')
   <div class="section title-section">
     <div class="section d-flex align-items-center">
-      <h1><span class="icon"><i class="fab fa-keycdn"></i></span>@lang('message.pages.settings.permissions.title')</h1>
+      <h1 class="mr-auto"><span class="icon"><i class="fab fa-keycdn"></i></span>@lang('message.pages.settings.permissions.title')</h1>
 
       <a href="{{ route('admin.settings.permissions.create') }}" class="button button-primary button-rounded ml-auto mr-3" title="@lang('message.pages.settings.permissions.new')">@lang('message.pages.settings.permissions.new')</a>
       <form action="" method="GET" class="form-search">
