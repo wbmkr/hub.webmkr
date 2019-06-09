@@ -4,11 +4,11 @@ namespace App;
 
 use App\Notifications\Admin\ResetPasswordNotification;
 use App\Notifications\Admin\WelcomeNotification;
+use App\Traits\HasPermissionTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Webmkr\Hub\Traits\HasPermissionTrait;
 
 class Admin extends Authenticatable
 {

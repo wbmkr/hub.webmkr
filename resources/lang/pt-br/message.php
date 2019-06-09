@@ -28,7 +28,9 @@ return [
             'caution_message'   => 'Está area é restrita. Se você não é funcionário da :application com nível de acesso, por favor volte ao site imediatamente.',
             'search'            => 'Pesquisar',
             'save'              => 'Salvar',
-            'search_result'     => '{0} Sua busca retornou nenhum resultado|{1} Sua busca retornou 1 resultado|[2,*] Sua busca retornou :total resultados '
+            'search_result'     => '{0} Sua busca retornou nenhum resultado|{1} Sua busca retornou 1 resultado|[2,*] Sua busca retornou :total resultados ',
+            'check_all'         => 'Marcar todos',
+            'uncheck_all'       => 'Desmarcar todos'
         ],
         'alert' => [
             'success' => [
@@ -80,7 +82,22 @@ return [
                     'name'          => 'Nome',
                     'created_at'    => 'Criado em',
                 ]
-            ]
+            ],
+            'roles' => [
+                'title'     => 'Cargos',
+                'name'      => 'Cargo',
+                'new'       => 'Novo Cargo',
+                'edit'      => 'Editar Cargo',
+                'delete'    => 'Deletar Cargo',
+                'action'    => [
+                    'delete'    => 'Tem certeza que deseja deletar o cargo :role',
+                ],
+                'label'    => [
+                    'name'          => 'Nome',
+                    'created_at'    => 'Criado em',
+                    'permissions'   => 'Permissões'
+                ]
+            ]    
         ]
     ],
 

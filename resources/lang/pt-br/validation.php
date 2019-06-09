@@ -143,5 +143,7 @@ return [
     |
     */
     
-    'attributes' => [],
+    'attributes' => [
+        'role.permission' => 'permissão'
+    ],
 ];

@@ -14,12 +14,7 @@
   <div class="section data-section">
     <form action="{{ route('admin.settings.permissions.edit', $permission->slug) }}" method="POST" class="form-default">
       @csrf
-      <div class="form-group">
-        <label for="name" class="required">@lang('message.pages.settings.permissions.label.name')</label>
-        <input type="text" name="name" id="name" value="{{ $permission->name }}" class="form-control">
-        @if($errors->has('name')) <div class="invalid-feedback d-block">{{ $errors->first('name') }}</div> @endif
-      </div>
-
+      @include('hub::admin.settings.permissions._form')
       <button type="submit" class="button button-primary">@lang('message.common.label.save')</button>
     </form>
   </div>

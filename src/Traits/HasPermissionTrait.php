@@ -1,9 +1,9 @@
 <?php
 
-namespace Webmkr\Hub\Traits;
+namespace App\Traits;
 
-use Webmkr\Hub\Permission;
-use Webmkr\Hub\Role;
+use App\Permission;
+use App\Role;
 
 trait HasPermissionTrait
 {

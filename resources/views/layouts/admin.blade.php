@@ -43,7 +43,7 @@
                 <a href="#" class="nav-link dropdown-toggle" title="@lang('message.navigation.main.settings.title')" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropSettings"><i class="fas fa-cog"></i></a>
                 <div class="dropdown-menu" aria-labelledby="dropSettings">
                   <a href="{{ route('admin.settings.permissions.index') }}" class="dropdown-item" title="@lang('message.navigation.main.settings.permissions')">@lang('message.navigation.main.settings.permissions')</a>
-                  <a href="#" class="dropdown-item" title="@lang('message.navigation.main.settings.roles')">@lang('message.navigation.main.settings.roles')</a>
+                  <a href="{{ route('admin.settings.roles.index') }}" class="dropdown-item" title="@lang('message.navigation.main.settings.roles')">@lang('message.navigation.main.settings.roles')</a>
                   <a href="#" class="dropdown-item" title="@lang('message.navigation.main.settings.admins')">@lang('message.navigation.main.settings.admins')</a>
                 </div>
               </li>
@@ -55,5 +55,6 @@
     </div>
   </div>
   <script src="{{ asset('js/hub.js') }}"></script>
+  @yield('js')
 </body>
 </html>

@@ -28,6 +28,15 @@ Route::prefix('admin')->middleware('web')->name('admin.')->group(function(){
                 Route::post('{slug}/editar', 'Webmkr\Hub\Http\Controllers\PermissionController@update');
                 Route::get('{slug}/deletar', 'Webmkr\Hub\Http\Controllers\PermissionController@delete')->name('delete');
             });
+
+            Route::prefix('cargos')->name('roles.')->group(function(){
+                Route::get('/', 'Webmkr\Hub\Http\Controllers\RoleController@index')->name('index');
+                Route::get('novo', 'Webmkr\Hub\Http\Controllers\RoleController@create')->name('create');
+                Route::post('novo', 'Webmkr\Hub\Http\Controllers\RoleController@store');
+                Route::get('{slug}/editar', 'Webmkr\Hub\Http\Controllers\RoleController@edit')->name('edit');
+                Route::post('{slug}/editar', 'Webmkr\Hub\Http\Controllers\RoleController@update');
+                Route::get('{slug}/deletar', 'Webmkr\Hub\Http\Controllers\RoleController@delete')->name('delete');
+            });
         });
         
     });
