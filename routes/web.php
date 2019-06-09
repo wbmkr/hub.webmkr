@@ -37,7 +37,23 @@ Route::prefix('admin')->middleware('web')->name('admin.')->group(function(){
                 Route::post('{slug}/editar', 'Webmkr\Hub\Http\Controllers\RoleController@update');
                 Route::get('{slug}/deletar', 'Webmkr\Hub\Http\Controllers\RoleController@delete')->name('delete');
             });
+
+            Route::prefix('administradores')->name('admins.')->group(function(){
+                Route::get('/', 'Webmkr\Hub\Http\Controllers\AdminController@index')->name('index');
+                Route::get('novo', 'Webmkr\Hub\Http\Controllers\AdminController@create')->name('create');
+                Route::post('novo', 'Webmkr\Hub\Http\Controllers\AdminController@store');
+                Route::get('{slug}/editar', 'Webmkr\Hub\Http\Controllers\AdminController@edit')->name('edit');
+                Route::post('{slug}/editar', 'Webmkr\Hub\Http\Controllers\AdminController@update');
+                Route::get('{slug}/deletar', 'Webmkr\Hub\Http\Controllers\AdminController@delete')->name('delete');
+            });
         });
         
+    });
+
+    # RESOURCES
+    Route::prefix('resources')->group(function(){
+        Route::prefix('permissions')->group(function(){
+            Route::get('{role}', 'Webmkr\Hub\Http\Controllers\ResourceController@permissions');
+        });
     });
 });

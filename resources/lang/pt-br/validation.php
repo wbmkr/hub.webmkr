@@ -144,6 +144,7 @@ return [
     */
     
     'attributes' => [
-        'role.permission' => 'permissão'
+        'role.permission'   => 'permissão',
+        'admin.permission'  => 'permissão'
     ],
 ];

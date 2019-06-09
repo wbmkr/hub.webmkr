@@ -20,7 +20,7 @@
         <div class="section content d-flex justify-content-center align-items-center">
           <div class="dropdown ml-auto">
             <button class="dropdown-toggle" type="button" id="dropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="icon"><img src="{{ Auth::guard('admin')->user()->profile() }}" alt="{{ Auth::guard('admin')->user()->name }}"></span>{{ Auth::guard('admin')->user()->name }}
+              <span class="icon"><img src="{{ Auth::guard('admin')->user()->profile() }}" alt="{{ Auth::guard('admin')->user()->name }}"></span>{{ Auth::guard('admin')->user()->name }} <span class="badge badge-dark text-uppercase">{{ Auth::guard('admin')->user()->roles->first->name }}</span>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownProfile">
               <a class="dropdown-item" href="{{ route('root') }}" title="@lang('message.navigation.header.view_website')" target="_blank">@lang('message.navigation.header.view_website')</a>
@@ -44,7 +44,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropSettings">
                   <a href="{{ route('admin.settings.permissions.index') }}" class="dropdown-item" title="@lang('message.navigation.main.settings.permissions')">@lang('message.navigation.main.settings.permissions')</a>
                   <a href="{{ route('admin.settings.roles.index') }}" class="dropdown-item" title="@lang('message.navigation.main.settings.roles')">@lang('message.navigation.main.settings.roles')</a>
-                  <a href="#" class="dropdown-item" title="@lang('message.navigation.main.settings.admins')">@lang('message.navigation.main.settings.admins')</a>
+                  <a href="{{ route('admin.settings.admins.index') }}" class="dropdown-item" title="@lang('message.navigation.main.settings.admins')">@lang('message.navigation.main.settings.admins')</a>
                 </div>
               </li>
             </ul>

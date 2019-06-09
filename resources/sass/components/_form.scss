@@ -25,6 +25,10 @@
       font: 400 12px 'Roboto', sans-serif;
       padding: 1.25rem;
     }
+
+    select.form-control {
+      height: 42px;
+    }
   }
 
   .custom-control-label::before {

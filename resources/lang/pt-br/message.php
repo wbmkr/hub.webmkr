@@ -97,7 +97,27 @@ return [
                     'created_at'    => 'Criado em',
                     'permissions'   => 'Permissões'
                 ]
-            ]    
+            ],
+            'admins' => [
+                'title'     => 'Administradores',
+                'name'      => 'Administrador',
+                'new'       => 'Novo Administrador',
+                'edit'      => 'Editar Administrador',
+                'delete'    => 'Deletar Administrador',
+                'action'    => [
+                    'delete'    => 'Tem certeza que deseja deletar o administrador :admin',
+                ],
+                'label'    => [
+                    'name'          => 'Nome',
+                    'created_at'    => 'Criado em',
+                    'role'          => 'Cargo',
+                    'roles'         => 'Cargos',
+                    'email'         => 'E-mail',
+                    'permissions'   => 'Permissões',
+                    'active'        => 'Administrador ativo',
+                    'status'        => 'Status'
+                ]
+            ],  
         ]
     ],
 

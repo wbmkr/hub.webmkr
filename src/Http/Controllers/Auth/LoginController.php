@@ -29,6 +29,9 @@ class LoginController extends Controller
         ];
 
         if (Auth::guard('admin')->attempt($credentials, $request->remember)) {
+            $admin = Auth::guard('admin')->user();
+            $admin->setTrackable($request);
+            $admin->save();
             session()->flash('success', 'Login efetuado com sucesso.');
             return redirect()->route('admin.dashboard');
         } else {
