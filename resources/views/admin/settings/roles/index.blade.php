@@ -7,9 +7,11 @@
 @section('content')
   <div class="section title-section">
     <div class="section d-flex align-items-center">
-      <h1><span class="icon"><i class="fas fa-user-tag"></i></span>@lang('message.pages.settings.roles.title')</h1>
+      <h1 class="mr-auto"><span class="icon"><i class="fas fa-user-tag"></i></span>@lang('message.pages.settings.roles.title')</h1>
 
-      <a href="{{ route('admin.settings.roles.create') }}" class="button button-primary button-rounded ml-auto mr-3" title="@lang('message.pages.settings.roles.new')">@lang('message.pages.settings.roles.new')</a>
+      @can('criar-cargo')
+        <a href="{{ route('admin.settings.roles.create') }}" class="button button-primary button-rounded mr-3" title="@lang('message.pages.settings.roles.new')">@lang('message.pages.settings.roles.new')</a>
+      @endcan
       <form action="" method="GET" class="form-search">
         <div class="input-group">
           <input type="text" name="query" id="query" value="{{ old('query') }}" class="form-control" placeholder="@lang('message.common.label.search')">

@@ -19,10 +19,16 @@ class PermissionController extends Controller
         return view('hub::admin.settings.permissions.index', compact('permissions'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $permission = new Permission;
-        return view('hub::admin.settings.permissions.create', compact('permission'));
+        $admin = $request->user();
+
+        if ($admin->can('criar-permissao')) {
+            $permission = new Permission;
+            return view('hub::admin.settings.permissions.create', compact('permission'));
+        }
+        
+        return redirect()->route('admin.dashboard');
     }
 
     public function store(Request $request)
@@ -40,10 +46,16 @@ class PermissionController extends Controller
         return redirect()->back()->with('error', __('message.common.alert.error.create'));
     }
 
-    public function edit($slug)
+    public function edit(Request $request, $slug)
     {
-        $permission = Permission::slug($slug)->first();
-        return view('hub::admin.settings.permissions.edit', compact('permission'));
+        $admin = $request->user();
+
+        if ($admin->can('editar-permissao')) {
+            $permission = Permission::slug($slug)->first();
+            return view('hub::admin.settings.permissions.edit', compact('permission'));
+        }
+        
+        return redirect()->route('admin.dashboard');
     }
 
     public function update(Request $request, $slug)
@@ -62,16 +74,22 @@ class PermissionController extends Controller
         return redirect()->back()->with('error', __('message.common.alert.error.edit'));
     }
 
-    public function delete($slug)
+    public function delete(Request $request, $slug)
     {
-        $permission = Permission::slug($slug)->first();
+        $admin = $request->user();
 
-        if ($permission->delete()) {
-            session()->flash('info', __('message.common.alert.success.delete'));
-            return redirect()->route('admin.settings.permissions.index');
+        if ($admin->can('deletar-permissao')) {
+            $permission = Permission::slug($slug)->first();
+
+            if ($permission->delete()) {
+                session()->flash('info', __('message.common.alert.success.delete'));
+                return redirect()->route('admin.settings.permissions.index');
+            }
+
+            return redirect()->back()->with('error', __('message.common.alert.error.delete'));
         }
-
-        return redirect()->back()->with('error', __('message.common.alert.error.delete'));
+        
+        return redirect()->route('admin.dashboard');
     }
 
     # PROTECTED

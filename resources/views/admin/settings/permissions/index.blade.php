@@ -9,7 +9,10 @@
     <div class="section d-flex align-items-center">
       <h1 class="mr-auto"><span class="icon"><i class="fab fa-keycdn"></i></span>@lang('message.pages.settings.permissions.title')</h1>
 
-      <a href="{{ route('admin.settings.permissions.create') }}" class="button button-primary button-rounded ml-auto mr-3" title="@lang('message.pages.settings.permissions.new')">@lang('message.pages.settings.permissions.new')</a>
+      @can('criar-permissao')
+        <a href="{{ route('admin.settings.permissions.create') }}" class="button button-primary button-rounded ml-auto mr-3" title="@lang('message.pages.settings.permissions.new')">@lang('message.pages.settings.permissions.new')</a>
+      @endcan
+      
       <form action="" method="GET" class="form-search">
         <div class="input-group">
           <input type="text" name="query" id="query" value="{{ old('query') }}" class="form-control" placeholder="@lang('message.common.label.search')">

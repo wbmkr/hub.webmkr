@@ -20,11 +20,17 @@ class RoleController extends Controller
         return view('hub::admin.settings.roles.index', compact('roles'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $role = new Role;
-        $permissions = $this->getPermissions();
-        return view('hub::admin.settings.roles.create', compact('role', 'permissions'));
+        $admin = $request->user();
+
+        if ($admin->can('criar-cargo')) {
+            $role = new Role;
+            $permissions = $this->getPermissions();
+            return view('hub::admin.settings.roles.create', compact('role', 'permissions'));
+        }
+
+        return redirect()->route('admin.dashboard');
     }
 
     public function store(Request $request)
@@ -48,11 +54,17 @@ class RoleController extends Controller
         return redirect()->back()->with('error', __('message.common.alert.error.create'));
     }
 
-    public function edit($slug)
+    public function edit(Request $request, $slug)
     {
-        $role = Role::slug($slug)->first();
-        $permissions = $this->getPermissions();
-        return view('hub::admin.settings.roles.edit', compact('role', 'permissions'));
+        $admin = $request->user();
+
+        if ($admin->can('editar-cargo')) {
+            $role = Role::slug($slug)->first();
+            $permissions = $this->getPermissions();
+            return view('hub::admin.settings.roles.edit', compact('role', 'permissions'));
+        }
+
+        return redirect()->route('admin.dashboard');
     }
 
     public function update(Request $request, $slug)
@@ -77,16 +89,22 @@ class RoleController extends Controller
         return redirect()->back()->with('error', __('message.common.alert.error.edit'));
     }
 
-    public function delete($slug)
+    public function delete(Request $request, $slug)
     {
-        $role = Role::slug($slug)->first();
+        $admin = $request->user();
 
-        if ($role->delete()) {
-            session()->flash('info', __('message.common.alert.success.delete'));
-            return redirect()->route('admin.settings.roles.index');
+        if ($admin->can('deletar-cargo')) {
+            $role = Role::slug($slug)->first();
+
+            if ($role->delete()) {
+                session()->flash('info', __('message.common.alert.success.delete'));
+                return redirect()->route('admin.settings.roles.index');
+            }
+
+            return redirect()->back()->with('error', __('message.common.alert.error.delete'));
         }
 
-        return redirect()->back()->with('error', __('message.common.alert.error.delete'));
+        return redirect()->route('admin.dashboard');
     }
 
     # PROTECTED

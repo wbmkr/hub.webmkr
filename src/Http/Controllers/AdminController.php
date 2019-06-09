@@ -21,12 +21,17 @@ class AdminController extends Controller
         return view('hub::admin.settings.admins.index', compact('admins'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $admin = new Admin;
-        $roles = $this->getRoles();
-        $permissions = $this->getPermissions();
-        return view('hub::admin.settings.admins.create', compact('admin', 'roles', 'permissions'));
+        $user = $request->user();
+
+        if ($user->can('criar-administrador')) {
+            $admin = new Admin;
+            $roles = $this->getRoles();
+            $permissions = $this->getPermissions();
+            return view('hub::admin.settings.admins.create', compact('admin', 'roles', 'permissions'));
+        }
+        return redirect()->route('admin.dashboard');
     }
 
     public function store(Request $request)
@@ -51,12 +56,17 @@ class AdminController extends Controller
         return redirect()->back()->with('error', __('message.common.alert.error.create'));
     }
 
-    public function edit($slug)
+    public function edit(Request $request, $slug)
     {
-        $admin = Admin::slug($slug)->first();
-        $roles = $this->getRoles();
-        $permissions = $this->getPermissions();
-        return view('hub::admin.settings.admins.edit', compact('admin', 'roles', 'permissions'));
+        $user = $request->user();
+
+        if ($user->can('editar-administrador')) {
+            $admin = Admin::slug($slug)->first();
+            $roles = $this->getRoles();
+            $permissions = $this->getPermissions();
+            return view('hub::admin.settings.admins.edit', compact('admin', 'roles', 'permissions'));
+        }
+        return redirect()->route('admin.dashboard');
     }
 
     public function update(Request $request, $slug)
@@ -82,16 +92,21 @@ class AdminController extends Controller
         return redirect()->back()->with('error', __('message.common.alert.error.edit'));
     }
 
-    public function delete($slug)
+    public function delete(Request $request, $slug)
     {
-        $admin = Admin::slug($slug)->first();
+        $user = $request->user();
 
-        if ($admin->delete()) {
-            session()->flash('info', __('message.common.alert.success.delete'));
-            return redirect()->route('admin.settings.admins.index');
+        if ($user->can('deletar-administrador')) {
+            $admin = Admin::slug($slug)->first();
+
+            if ($admin->delete()) {
+                session()->flash('info', __('message.common.alert.success.delete'));
+                return redirect()->route('admin.settings.admins.index');
+            }
+
+            return redirect()->back()->with('error', __('message.common.alert.error.delete'));
         }
-
-        return redirect()->back()->with('error', __('message.common.alert.error.delete'));
+        return redirect()->route('admin.dashboard');
     }
 
     public function me(Request $request)
