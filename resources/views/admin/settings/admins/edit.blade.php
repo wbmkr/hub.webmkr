@@ -1,4 +1,4 @@
-@extends('hub::layouts.admin')
+@extends('layouts.admin')
 
 @section('head')
   <title>{{ config('app.name') }} :: @lang('message.pages.settings.admins.edit')</title>
@@ -14,7 +14,7 @@
   <div class="section data-section">
     <form action="{{ route('admin.settings.admins.edit', $admin->slug) }}" method="POST" class="form-default">
       @csrf
-      @include('hub::admin.settings.admins._form')
+      @include('admin.settings.admins._form')
       <button type="submit" class="button button-primary">@lang('message.common.label.save')</button>
     </form>
   </div>

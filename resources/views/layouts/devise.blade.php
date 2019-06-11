@@ -10,7 +10,7 @@
   @yield('head')
 </head>
 <body class="devise">
-  @include('hub::layouts._alerts')
+  @include('layouts._alerts')
   <div class="container-fluid p-0">
     <div class="row no-gutters">
       <div class="col-9">

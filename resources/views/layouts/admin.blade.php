@@ -10,7 +10,7 @@
   @yield('head')
 </head>
 <body class="admin">
-  @include('hub::layouts._alerts')
+  @include('layouts._alerts')
   <div class="wrap">
     <div class="section header">
       <div class="section d-flex">

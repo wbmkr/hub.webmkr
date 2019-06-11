@@ -1,4 +1,4 @@
-@extends('hub::layouts.devise')
+@extends('layouts.devise')
 
 @section('head')
   <title>@lang('message.pages.auth.passwords.reset.meta_title', ['application' => config('app.name')])</title>
